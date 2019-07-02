@@ -3,7 +3,7 @@ from django.views.generic.base import View
 from django.contrib import messages
 
 from .forms import EnterTaskForm
-from .functions import start_celery_task
+from .functions import execute_task
 
 
 class MainView(View):
@@ -19,7 +19,7 @@ class MainView(View):
             email = form.cleaned_data['email']
             description = form.cleaned_data['description']
 
-            start_celery_task(url, email, description)
+            execute_task(url, email, description)
 
             messages.add_message(request, messages.SUCCESS, 
                 'Задание принято!')
