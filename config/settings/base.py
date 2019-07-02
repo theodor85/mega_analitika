@@ -75,6 +75,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "mega_analitika.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    'mega_analitika.main.apps.MainConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
