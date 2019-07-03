@@ -277,4 +277,4 @@ mega_analitika/media/
 .env
 .envs/*
 
-temp.dat
+*.dat

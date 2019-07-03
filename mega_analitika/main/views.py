@@ -28,3 +28,8 @@ class MainView(View):
         messages.add_message(request, messages.WARNING, 
                 'Задание не принято и не будет выполнено!')
         return render(request, 'main/main.html', {'form': form})
+
+
+class ReportView(View):
+    def get(self, request):
+        return render(request, 'main/report.html')

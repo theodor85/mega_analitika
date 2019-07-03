@@ -2,6 +2,10 @@ from __future__ import absolute_import, unicode_literals
 from datetime import time, date
 from collections import Counter
 
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
+from django.conf import settings
+
 from celery import shared_task
 
 from .models import Task, PopularDay, PopularTime
@@ -41,10 +45,17 @@ def pickup_statistic_and_write_to_DB(task_pk, data):
 
 
 def send_email_notification(task_pk):
-    context = {'task_pk': task_pk }
+    task = Task(pk=task_pk)
+
+    if settings.ALLOWED_HOSTS:
+        host = 'http://' + settings.ALLOWED_HOSTS[0] + ':8000'
+    else:
+        host = 'http://0.0.0.0:8000'
+
+    context = {'task_pk': task_pk, 'host': host }
     body_mail = render_to_string('main/letter.txt', context)
     subj = 'Ссылка на отчет по сайту olx.ua'
-    mailer = EmailMessage(subject=subj, body=body_mail, to=[follower.email])
+    mailer = EmailMessage(subject=subj, body=body_mail, to=[task.email])
     mailer.send()
 
 @shared_task

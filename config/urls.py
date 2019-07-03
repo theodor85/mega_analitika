@@ -5,10 +5,11 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-from mega_analitika.main.views import MainView
+from mega_analitika.main.views import MainView, ReportView
 
 urlpatterns = [
     path("", MainView.as_view(), name="home"),
+    path('report/', ReportView.as_view(), name='report'),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
