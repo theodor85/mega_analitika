@@ -5,6 +5,8 @@ class Task(models.Model):
     ''' Задача сбора информации '''
     description = models.TextField(verbose_name='Описание задачи', 
         help_text='Это описание будет использовано в заголовке отчета')
+    email = models.EmailField(verbose_name='Email', 
+        default='fedor_coder@mail.ru')
 
 
 class Ad(models.Model):
