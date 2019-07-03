@@ -276,3 +276,5 @@ mega_analitika/media/
 .ipython/
 .env
 .envs/*
+
+temp.dat

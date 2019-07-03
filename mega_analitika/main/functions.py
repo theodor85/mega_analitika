@@ -1,5 +1,5 @@
 from .models import Task
-from .tasks import scrap_data_and_write_to_DB
+from .tasks import scrap_data_and_get_statistic
 
 def execute_task(url, email, description):
     # сохранить задачу
@@ -12,4 +12,4 @@ def execute_task(url, email, description):
 
 
 def start_celery_task(task, url):
-    scrap_data_and_write_to_DB.delay(task.pk, url)
+    scrap_data_and_get_statistic.delay(task.pk, url)
