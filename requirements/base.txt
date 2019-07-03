@@ -19,3 +19,12 @@ django-redis==4.10.0  # https://github.com/niwinz/django-redis
 # Django REST Framework
 djangorestframework==3.9.4  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
+
+# firstscrap
+# ------------------------------------------------------------------------------
+beautifulsoup4==4.6.3
+bs4==0.0.1
+requests==2.21.0
+requests-toolbelt==0.9.1
+selenium==3.14.1
+tqdm==4.31.1

@@ -9,14 +9,6 @@ class Task(models.Model):
         default='fedor_coder@mail.ru')
 
 
-class Ad(models.Model):
-    ''' Данные объявлений: дата, время. Данные должны принадлежать одной 
-    задаче, поэтому имеется ForeignKey на таблицу задач '''
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    date = models.DateField()
-    time = models.TimeField()
-
-
 class PopularTime(models.Model):
     ''' Эта таблица вычисляется на основе данных, сохраненных в модели Ad. 
     Фактически, это готовый отчет, который можно выводить пользователю. '''
