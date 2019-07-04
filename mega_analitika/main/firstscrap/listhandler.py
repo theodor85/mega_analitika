@@ -7,7 +7,6 @@ import logging
 import json
 from tqdm import tqdm
 
-
 # во временном файле хранятся данные, сохраняющиеся
 # "на лету", чтобы они не пропали при сбое 
 TEMP_FILE_NAME = 'temp.dat'
@@ -35,7 +34,7 @@ def is_no_json_data():
     Это нужно для корректной записи данных: ставить запятую или нет. '''
     
     with open(TEMP_FILE_NAME, 'r') as f:
-        s = f.read()
+        s = f.readline()
     
     if s=='[':
         return True

@@ -68,13 +68,13 @@ def month_to_int(str_month):
 
 
 def get_ads_date_time(links_to_ad):
-    return list_handler(links_to_ad, AdDataGetter, with_processes=True, process_limit=10)
+    return list_handler(links_to_ad, AdDataGetter, with_processes=True, process_limit=50)
 
 
 def get_list_of_links(urls):
-    rezult = list_handler(urls, LinksGetter, with_processes=True, process_limit=10)
-    links_to_ad = [] 
-
+    rezult = list_handler(urls, LinksGetter, with_processes=True, process_limit=50)
+    #links_to_ad = (item for a_list in rezult for item in a_list)
+    links_to_ad = []
     for a_list in rezult:
         for item in a_list:
             links_to_ad.append(item)
@@ -92,7 +92,7 @@ def scrap_data(URL):
     #получаем количество страниц пагинатора
     number_of_pages = get_paginator_num_pages(URL)
     # генерируем список url-ов страниц
-    urls = (URL + '?page=' + str(i) for i in range(3, 4)) # range(1, number_of_pages+1)
+    urls = (URL + '?page=' + str(i) for i in range(1, number_of_pages+1)) # range(1, number_of_pages+1)
 
     # получаем список ссылок на страницы объявлений
     links_to_ad = get_list_of_links(urls)
