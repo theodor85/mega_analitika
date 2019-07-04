@@ -68,11 +68,11 @@ def month_to_int(str_month):
 
 
 def get_ads_date_time(links_to_ad):
-    return list_handler(links_to_ad, AdDataGetter, with_processes=True, process_limit=50)
+    return list_handler(links_to_ad, AdDataGetter, with_processes=True, process_limit=100)
 
 
 def get_list_of_links(urls):
-    rezult = list_handler(urls, LinksGetter, with_processes=True, process_limit=50)
+    rezult = list_handler(urls, LinksGetter, with_processes=True, process_limit=100)
     #links_to_ad = (item for a_list in rezult for item in a_list)
     links_to_ad = []
     for a_list in rezult:
